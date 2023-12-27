@@ -1,0 +1,8 @@
+2023-12-27 12:42:59,999 - ERROR - Error saving user: 'email'
+2023-12-27 12:53:07,706 - ERROR - Error saving user: 'email'
+2023-12-27 12:54:35,929 - ERROR - Error saving user: 'email'
+2023-12-27 12:55:23,037 - ERROR - Error saving user: 'email'
+2023-12-27 12:57:58,821 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['OnUNcbhtofrnsYVABkP3Fsn9qkx1vH0e8lJGVgOEXqPjYc1ptG3zc8G4bKUatcIb'], 'username': ['test'], 'password1': ['moad2008@'], 'password2': ['moad2008@']}>
+2023-12-27 12:57:58,822 - DEBUG - Is form valid? False
+2023-12-27 12:58:22,085 - INFO - The account for user 'test' has been successfully created
+2023-12-27 13:19:03,663 - INFO - User admin- has logged in successfully
