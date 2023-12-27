@@ -6,3 +6,6 @@
 2023-12-27 12:57:58,822 - DEBUG - Is form valid? False
 2023-12-27 12:58:22,085 - INFO - The account for user 'test' has been successfully created
 2023-12-27 13:19:03,663 - INFO - User admin- has logged in successfully
+2023-12-27 14:18:17,325 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['3LDdDBWvhZ04VZhhNJrx18pOaRKm6PD90E0difcysFQQs5Mukbs4gOyMEl5Ee3LT'], 'username': ['test1'], 'email': ['test@gmail'], 'password1': ['moad2008@'], 'password2': ['moad2008@']}>
+2023-12-27 14:18:17,325 - DEBUG - Is form valid? False
+2023-12-27 14:19:04,701 - INFO - The account for user 'test1-test@gmail.com' has been successfully created

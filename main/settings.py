@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'auth_remember',
     'bootstrap5',
     'log_register'
 ]
@@ -50,12 +49,8 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'auth_remember.middleware.AuthRememberMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    
-    
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -132,18 +127,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'auth_remember.backend.AuthRememberBackend',
-)
-
-
-#cookie name and age
-AUTH_REMEMBER_COOKIE_NAME = 'remember_token'
-AUTH_REMEMBER_COOKIE_AGE = 86400 * 7
-
-#expire session and login again
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-

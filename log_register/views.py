@@ -5,6 +5,8 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 
+
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -20,7 +22,7 @@ def register_request(request):
                 user = form.save()
                 login(request, user)
                 logger.info(f"The account for user '{user.username}-{user.email}' has been successfully created")
-                return redirect('/')
+                return redirect('test')
             except Exception as e:
                 logger.error(f'Error saving user: {e}')
         else:
@@ -41,8 +43,9 @@ def login_request(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                
                 logger.info(f'User {user.username}-{user.email} has logged in successfully')
-                return redirect('/') 
+                return redirect('test') 
             else:
                 logger.error(f'Error logging in - Invalid credentials')
         else:
@@ -51,5 +54,15 @@ def login_request(request):
         form = AuthenticationForm()
     
     return render(request, 'user_templates/login.html', context={'login_form': form})
+
+
+
+def logout_request(request):
+	logout(request)
+	return redirect('/login')
+
+
+def test(request):
+    return render(request, 'user_templates/test.html')
          
 
