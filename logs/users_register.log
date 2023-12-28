@@ -9,3 +9,35 @@
 2023-12-27 14:18:17,325 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['3LDdDBWvhZ04VZhhNJrx18pOaRKm6PD90E0difcysFQQs5Mukbs4gOyMEl5Ee3LT'], 'username': ['test1'], 'email': ['test@gmail'], 'password1': ['moad2008@'], 'password2': ['moad2008@']}>
 2023-12-27 14:18:17,325 - DEBUG - Is form valid? False
 2023-12-27 14:19:04,701 - INFO - The account for user 'test1-test@gmail.com' has been successfully created
+2023-12-28 19:26:21,590 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 19:26:45,313 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 19:29:47,091 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 19:31:42,320 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 19:31:56,086 - ERROR - Error logging in - Form is not valid
+2023-12-28 19:31:56,471 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 19:32:38,608 - ERROR - Error logging in - Form is not valid
+2023-12-28 19:32:38,997 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 19:36:16,589 - ERROR - Error logging in - Form is not valid
+2023-12-28 19:36:16,974 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:01:50,730 - ERROR - Error logging in - Form is not valid
+2023-12-28 20:01:51,113 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:05:42,431 - ERROR - Error logging in - Form is not valid
+2023-12-28 20:05:42,817 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:06:17,346 - ERROR - Error logging in - Form is not valid
+2023-12-28 20:06:17,731 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:07:00,047 - ERROR - Error logging in - Form is not valid
+2023-12-28 20:07:00,482 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:44:32,363 - INFO - User testuser- has logged in successfully
+2023-12-28 20:44:33,149 - DEBUG - Form data: <QueryDict: {'username': ['testuser'], 'email': ['testuser@example.com'], 'password1': ['testpassword123'], 'password2': ['testpassword123']}>
+2023-12-28 20:44:33,149 - DEBUG - Is form valid? False
+2023-12-28 20:44:51,668 - INFO - User testuser- has logged in successfully
+2023-12-28 20:44:52,434 - DEBUG - Form data: <QueryDict: {'username': ['testuser'], 'email': ['testuser@example.com'], 'password1': ['testpassword123'], 'password2': ['testpassword123']}>
+2023-12-28 20:44:52,434 - DEBUG - Is form valid? False
+2023-12-28 20:45:01,035 - INFO - User testuser- has logged in successfully
+2023-12-28 20:45:01,784 - DEBUG - Form data: <QueryDict: {'username': ['testuser'], 'email': ['testuser@example.com'], 'password1': ['testpassword123'], 'password2': ['testpassword123']}>
+2023-12-28 20:45:01,784 - DEBUG - Is form valid? False
+2023-12-28 20:46:12,057 - ERROR - Error logging in - Form is not valid
+2023-12-28 20:46:12,461 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:46:30,293 - ERROR - Error logging in - Form is not valid
+2023-12-28 20:46:30,677 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 20:47:07,892 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
