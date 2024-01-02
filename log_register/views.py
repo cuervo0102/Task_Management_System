@@ -1,10 +1,12 @@
 import logging
 import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
-
+from .models import UserProfile
+from .forms import UserProfileForm
+from django.contrib.auth.decorators import login_required
 
 
 logger = logging.getLogger(__name__)
@@ -22,7 +24,7 @@ def register_request(request):
                 user = form.save()
                 login(request, user)
                 logger.info(f"The account for user '{user.username}-{user.email}' has been successfully created")
-                return redirect('test')
+                return redirect('/edit-profile/')
             except Exception as e:
                 logger.error(f'Error saving user: {e}')
         else:
@@ -42,10 +44,11 @@ def login_request(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
+                UserProfile.objects.create(user=user)
                 login(request, user)
                 
                 logger.info(f'User {user.username}-{user.email} has logged in successfully')
-                return redirect('test') 
+                return redirect('edit_user_profile') 
             else:
                 logger.error(f'Error logging in - Invalid credentials')
         else:
@@ -60,6 +63,20 @@ def login_request(request):
 def logout_request(request):
 	logout(request)
 	return redirect('/login')
+
+@login_required
+def edit_user_profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('edit_user_profile')
+    else:
+        form = UserProfileForm()
+
+    return render(request, 'user_templates/edit_user_profile.html', {'form': form})
 
 
 def test(request):

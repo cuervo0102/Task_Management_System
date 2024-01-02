@@ -41,3 +41,38 @@
 2023-12-28 20:46:30,293 - ERROR - Error logging in - Form is not valid
 2023-12-28 20:46:30,677 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
 2023-12-28 20:47:07,892 - INFO - The account for user 'testuser-testuser@example.com' has been successfully created
+2023-12-28 22:04:37,360 - INFO - The account for user 'siham-siham@siham.com' has been successfully created
+2023-12-28 22:04:37,363 - ERROR - Error saving user: Reverse for 'edit-profile' not found. 'edit-profile' is not a valid view function or pattern name.
+2023-12-28 22:06:39,490 - INFO - The account for user 'siham-siham@siham.com' has been successfully created
+2023-12-28 22:06:39,490 - ERROR - Error saving user: user_templates/edit-profile.html
+2023-12-28 22:12:29,560 - INFO - User admin- has logged in successfully
+2023-12-28 22:12:47,133 - INFO - User test-test@test.com has logged in successfully
+2024-01-02 20:09:40,913 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:13:29,579 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:13:29,581 - ERROR - Error saving user: Reverse for 'edit-profile' not found. 'edit-profile' is not a valid view function or pattern name.
+2024-01-02 20:18:30,951 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:21:03,649 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:22:10,647 - INFO - The account for user 'test-test@test.com' has been successfully created
+2024-01-02 20:25:53,193 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:30:18,859 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['WBVc5yqtE6wnz576S1djhgvrjNds3hsgYvfW9YtPfp57IacIqN0ZzqfW5nQwVIb3'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008@'], 'password2': ['moad2008@']}>
+2024-01-02 20:30:18,860 - DEBUG - Is form valid? False
+2024-01-02 20:30:50,547 - INFO - The account for user 'siham-siham@siham.com' has been successfully created
+2024-01-02 20:35:38,086 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['UHajK1ihwwM0fU8TXiGF8HCP1u2n0hiU1SQYfCtKFQ5FJs9xA75yHpC8DwGbEddu'], 'username': ['test'], 'email': ['test@test.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
+2024-01-02 20:35:38,086 - DEBUG - Is form valid? False
+2024-01-02 20:35:52,818 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['Lrib0CF3MGKiXlYl4hZ8xsegyWPf5WtjSCYQvdQwV03XrTZZH6o16aezaYt3JSoT'], 'username': ['test'], 'email': ['test@test.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
+2024-01-02 20:35:52,818 - DEBUG - Is form valid? False
+2024-01-02 20:36:10,745 - INFO - The account for user 'test-test@test.com' has been successfully created
+2024-01-02 20:39:02,340 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:49:12,488 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 20:54:12,839 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-02 21:15:46,668 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['6gp57L6cI90tFnmqC8qFOKUqje696yR7s3GJXJPpWKcrWVm47ukjFGRESKhGKLsf'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
+2024-01-02 21:15:46,669 - DEBUG - Is form valid? False
+2024-01-02 21:16:46,225 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['KbaAoBil9qhyiYPRa2wvTP0X44HZnQZe6Yreez1yn1twzwPvFoq9KLXbDASw13Am'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008à'], 'password2': ['moad2008@']}>
+2024-01-02 21:16:46,226 - DEBUG - Is form valid? False
+2024-01-02 21:17:01,737 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['iQwd3oYrPwTsKeRjW4UFxt8DwJmsPoSXEDNRTmHE375q1MRXrqOjop5R5fxZtBt5'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
+2024-01-02 21:17:01,738 - DEBUG - Is form valid? False
+2024-01-02 21:17:06,680 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['iQwd3oYrPwTsKeRjW4UFxt8DwJmsPoSXEDNRTmHE375q1MRXrqOjop5R5fxZtBt5'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
+2024-01-02 21:17:06,680 - DEBUG - Is form valid? False
+2024-01-02 21:18:06,647 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['iQwd3oYrPwTsKeRjW4UFxt8DwJmsPoSXEDNRTmHE375q1MRXrqOjop5R5fxZtBt5'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
+2024-01-02 21:18:06,648 - DEBUG - Is form valid? False
+2024-01-02 21:18:19,253 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
