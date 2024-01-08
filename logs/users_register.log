@@ -76,3 +76,6 @@
 2024-01-02 21:18:06,647 - DEBUG - Form data: <QueryDict: {'csrfmiddlewaretoken': ['iQwd3oYrPwTsKeRjW4UFxt8DwJmsPoSXEDNRTmHE375q1MRXrqOjop5R5fxZtBt5'], 'username': ['wassim'], 'email': ['wassim@wassim.com'], 'password1': ['moad2008'], 'password2': ['moad2008@']}>
 2024-01-02 21:18:06,648 - DEBUG - Is form valid? False
 2024-01-02 21:18:19,253 - INFO - The account for user 'wassim-wassim@wassim.com' has been successfully created
+2024-01-08 22:52:02,295 - INFO - The account for user 'saikai-saikai@gmail.com' has been successfully created
+2024-01-08 22:52:55,220 - INFO - The account for user 'moad-moad@moad.com' has been successfully created
+2024-01-08 22:53:51,868 - INFO - The account for user 'siham-siham@siham.com' has been successfully created
