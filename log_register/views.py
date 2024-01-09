@@ -48,7 +48,7 @@ def login_request(request):
                 login(request, user)
                 
                 logger.info(f'User {user.username}-{user.email} has logged in successfully')
-                return redirect('edit_user_profile') 
+                return redirect('/tasks/create-task') 
             else:
                 logger.error(f'Error logging in - Invalid credentials')
         else:
