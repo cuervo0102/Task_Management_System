@@ -6,6 +6,8 @@ from .rabbitmq_configuration import producer
 from .models import Task
 from .management.commands.consumer import Command
 from django.http import HttpResponse
+from django.core.management import call_command
+from .utils import generate_tracking_token
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +30,29 @@ def create_task(request):
 
     return render(request, 'task_templates/task.html', context={'form': form})
 
+
+
+def test(request, pk):
+    
+
+    token = generate_tracking_token()
+
+    url_with_tracking = f'/test/{pk}/?token={token}'
+
+    context = {
+
+        'url' : url_with_tracking
+    }
+
+    return render(request, 'task_templates/index.html', context)
+
+
 def index(request):
     processor_tasks = Task.objects.filter(processors=request.user)
-    Command.handle()
-    return HttpResponse('The email has been sent!')
+
+    context = {
+        'precessor': processor_tasks,
+    }
+
+    return render(request, 'task_templates/index.html', context)
+

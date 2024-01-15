@@ -14,6 +14,7 @@ class Command(BaseCommand):
         channel = connection.channel()
 
         channel.queue_declare(queue='test')
+        
 
         channel.basic_consume(queue='test', auto_ack=True, 
                               on_message_callback=on_message_recieved)

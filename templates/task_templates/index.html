@@ -1,0 +1,6 @@
+{% for p in precessor %}
+    <h2>
+        <a href="{% url 'test' pk=p.pk %}">{{ p.title }}</a>
+    </h2>
+{% endfor %}
+<p>Tracking URL: {{ url }}</p>
