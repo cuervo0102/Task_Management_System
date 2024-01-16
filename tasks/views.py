@@ -32,19 +32,6 @@ def create_task(request):
 
 
 
-def test(request, pk):
-    
-
-    token = generate_tracking_token()
-
-    url_with_tracking = f'/test/{pk}/?token={token}'
-
-    context = {
-
-        'url' : url_with_tracking
-    }
-
-    return render(request, 'task_templates/index.html', context)
 
 
 def index(request):
@@ -55,4 +42,16 @@ def index(request):
     }
 
     return render(request, 'task_templates/index.html', context)
+
+
+def task_details(request, pk):
+    details = Task.objects.get(id=pk)
+    token = generate_tracking_token()
+    url_with_tracking = f'/detail/{pk}/?token={token}'
+    context = {
+        'details':details,
+        'url' : url_with_tracking
+    }
+
+    return render(request, 'task_templates/task_details.html', context)
 
