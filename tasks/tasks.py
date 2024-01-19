@@ -3,9 +3,9 @@ from celery import shared_task, Celery
 from time import sleep
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
- 
+from .models import Task
 
-app = Celery('main')
+app = Celery('main', broker='pyamqp://guest:guest@localhost//')
 
 @shared_task
 def sleepy(duration):
@@ -33,11 +33,26 @@ def send_email_task():
     return None
 
 
+def send_notification_to_owner(task_id, status):
+    task = Task.objects.get(id=task_id)
+
+    task_owner = task.task_writer
+
+    print(f'Sending notification to {task_owner.username}: Task status is now {new_status}')
+
+
+
 @app.task
-def process_messages():
+def process_messages(task_id, new_status):
     def on_message_received(ch, method, properties, body):
         try:
-            print(f'Received new message: {body}')
+            task = Task.objects.get(id=task_id)
+            
+            task.status = new_status
+            task.save()
+
+            send_notification_to_owner(task_id, new_status)
+
         except Exception as e:
             print(f'Error processing message: {e}')
 
@@ -56,5 +71,9 @@ def process_messages():
         channel.start_consuming()
     except KeyboardInterrupt:
         print('Stopping the consumer')
+        channel.stop_consuming()
 
     connection.close()
+
+if __name__ == '__main__':
+    process_messages()

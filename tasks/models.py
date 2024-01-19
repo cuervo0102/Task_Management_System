@@ -8,10 +8,17 @@ class Task(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     due_date = models.DateTimeField()
-    # status = models.CharField(choices=[('To Do', 'To Do'), ('In Progress', 'In Progress'), ('Completed', 'Completed')], max_length=20)
+    status = models.CharField(choices=[('To Do', 'To Do'), ('In Progress', 'In Progress'), ('Completed', 'Completed')], max_length=20, default='To Do')
     priority = models.CharField(choices=[('Low', 'Low'), ('Medium', 'Medium'), ('High', 'High'), ('Urgent', 'Urgent')], max_length=10)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f'{self.title} - {self.priority}'
+    
+
+    def save(self, *args, **kwargs):
+        allowed_statuses = ['In Progress', 'Completed']
+        if self.status in allowed_statuses:
+            super().save(*args, **kwargs)
+        

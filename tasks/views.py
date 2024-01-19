@@ -40,7 +40,7 @@ def create_task(request):
 def index(request):
     processor_tasks = Task.objects.filter(processors=request.user)
 
-    process_messages.delay()
+    
 
     context = {
         'precessor': processor_tasks,
@@ -50,13 +50,25 @@ def index(request):
 
 
 def task_details(request, pk):
-    details = Task.objects.get(id=pk)
+    task = Task.objects.get(id=pk)
     token = generate_tracking_token()
     url_with_tracking = f'/detail/{pk}/?token={token}'
+
+   
+
     context = {
-        'details':details,
-        'url' : url_with_tracking
+        'details': task,
+        'url': url_with_tracking,
+        'status': task.status,
     }
 
-    return render(request, 'task_templates/task_details.html', context)
+    if request.method == 'POST':
+        status_ = request.POST.get('status')
+        task.status = status_
+        task.save()  
+        context['status'] = status_  
 
+
+    process_messages.delay(task.id, task.status)
+
+    return render(request, 'task_templates/task_details.html', context)
