@@ -4,10 +4,10 @@ from .forms import TaskForm
 from django.contrib.auth.decorators import login_required
 from .rabbitmq_configuration import producer
 from .models import Task
-from .management.commands.consumer import Command
 from django.http import HttpResponse
 from django.core.management import call_command
 from .utils import generate_tracking_token
+from .tasks import process_messages
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +39,8 @@ def create_task(request):
 
 def index(request):
     processor_tasks = Task.objects.filter(processors=request.user)
+
+    process_messages.delay()
 
     context = {
         'precessor': processor_tasks,
