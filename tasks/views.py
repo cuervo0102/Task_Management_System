@@ -20,7 +20,11 @@ def create_task(request):
                 task_writer = form.save(commit=False)
                 task_writer.user = request.user
                 task_writer.save()
-                producer()
+
+                priority = task_writer.priority
+                content = task_writer.title  
+                producer(priority, content)
+
                 return redirect('/tasks/')
         except Exception as e:
             logger.error(f"An error occurred: {e}")
@@ -29,7 +33,6 @@ def create_task(request):
         form = TaskForm()
 
     return render(request, 'task_templates/task.html', context={'form': form})
-
 
 
 
