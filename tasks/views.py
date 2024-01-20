@@ -54,8 +54,6 @@ def task_details(request, pk):
     token = generate_tracking_token()
     url_with_tracking = f'/detail/{pk}/?token={token}'
 
-   
-
     context = {
         'details': task,
         'url': url_with_tracking,
@@ -68,7 +66,6 @@ def task_details(request, pk):
         task.save()  
         context['status'] = status_  
 
-
-    process_messages.delay(task.id, task.status)
+        process_messages.delay(task.id, status_)
 
     return render(request, 'task_templates/task_details.html', context)

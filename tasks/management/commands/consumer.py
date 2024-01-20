@@ -1,30 +1,31 @@
-# from django.core.management.base import BaseCommand
-# import pika
+import pika 
+from tasks.tasks import process_messages
 
-# class Command(BaseCommand):
-#     help = 'Consume messages from RabbitMQ queue'
 
-#     def handle(self, *args, **options):
-#         def on_message_received(ch, method, properties, body):
-#             try:
-#                 self.stdout.write(self.style.SUCCESS(f'Received new message: {body}'))
-#             except Exception as e:
-#                 self.stderr.write(self.style.ERROR(f'Error processing message: {e}'))
+def on_message_received(ch, method, properties, body):
+    try:
+        task_id, new_status = map(int, body.split())
+        
+        process_messages.delay(task_id, new_status)
 
-#         connection_parameters = pika.ConnectionParameters('localhost')
-#         connection = pika.BlockingConnection(connection_parameters)
+    except Exception as e:
+        print(f'Error processing message: {e}')
 
-#         # channel = connection.channel()
 
-#         channel.queue_declare(queue='test')
 
-#         channel.basic_consume(queue='test', auto_ack=True, on_message_callback=on_message_received)
+connection_parameters = pika.ConnectionParameters('localhost')
+connection = pika.BlockingConnection(connection_parameters)
 
-#         self.stdout.write(self.style.SUCCESS('Start Consuming'))
+channel = connection.channel()
+channel.queue_declare(queue='test')
+channel.basic_consume(queue='test', auto_ack=True, on_message_callback=on_message_received)
 
-#         try:
-#             channel.start_consuming()
-#         except KeyboardInterrupt:
-#             self.stdout.write(self.style.SUCCESS('Stopping the consumer'))
+print('Start Consuming')
 
-#         connection.close()
+try:
+    channel.start_consuming()
+except KeyboardInterrupt:
+    print('Stopping the consumer')
+    channel.stop_consuming()
+
+connection.close()

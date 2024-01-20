@@ -44,36 +44,20 @@ def send_notification_to_owner(task_id, status):
 
 @app.task
 def process_messages(task_id, new_status):
-    def on_message_received(ch, method, properties, body):
-        try:
-            task = Task.objects.get(id=task_id)
-            
-            task.status = new_status
-            task.save()
-
-            send_notification_to_owner(task_id, new_status)
-
-        except Exception as e:
-            print(f'Error processing message: {e}')
-
-    connection_parameters = pika.ConnectionParameters('localhost')
-    connection = pika.BlockingConnection(connection_parameters)
-
-    channel = connection.channel()
-
-    channel.queue_declare(queue='test')
-
-    channel.basic_consume(queue='test', auto_ack=True, on_message_callback=on_message_received)
-
-    print('Start Consuming')
-
     try:
-        channel.start_consuming()
-    except KeyboardInterrupt:
-        print('Stopping the consumer')
-        channel.stop_consuming()
+        task = Task.objects.get(id=task_id)
+        task.status = new_status
+        task.save()
 
-    connection.close()
+        send_notification_to_owner(task_id, new_status)
 
+    except Exception as e:
+        print(f'Error processing message: {e}')
+
+
+
+
+
+        
 if __name__ == '__main__':
     process_messages()
